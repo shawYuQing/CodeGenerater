@@ -9,7 +9,7 @@ import com.xiao.codeGenerater.manager.GeneraterManager;
 public class CodeBuilder {
 
     public static void main(String[] args) {
-        build("localhost/demo/user.xml");
+        build("localhost/demo/demo.xml");
     }
 
     private static void build(String xmlPath){
