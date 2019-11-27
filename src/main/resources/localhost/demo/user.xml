@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generater>
+
+    <!--数据库链接信息-->
+    <drive>
+        <host>localhost</host>
+        <port>3306</port>
+        <username>username</username>
+        <password>password</password>
+        <database>demo</database>
+        <table>user</table>
+    </drive>
+
+    <!--实体类信息-->
+    <!--name：实体类生成是的名称-->
+    <!--getter：是否生成实体类属性的getter方法-->
+    <!--setter：是否生成实体类属性的setter方法-->
+    <!--basePackage：实体类的包路径-->
+    <entity name="User" getter="true" setter="true">
+        <basePackage>com.xiao.demo.entity</basePackage>
+    </entity>
+
+    <!--mapper接口类信息-->
+    <!--basePackage：mapper的包路径-->
+    <mapper>
+        <basePackage>com.xiao.demo.mapper</basePackage>
+    </mapper>
+
+    <!--数据库类型和java类型转换类-->
+    <typeConverter value="com.xiao.codeGenerater.convert.DefalutTypeConverter" />
+
+</generater>

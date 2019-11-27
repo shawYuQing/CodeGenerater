@@ -1,2 +1,2 @@
 # CodeGenerater
-java实体类自动生成
+基于mysql表，自动生成java实体类，mapper和mybatis xml文件
