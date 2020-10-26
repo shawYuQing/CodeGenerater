@@ -35,17 +35,21 @@ public class EntityBuilder {
                 importText.add(dbField.getImportText());
             }
 
+            fields.append("    /**\n").append("     * ").append(dbField.getComment()).append("\n     */\n");
             fields.append("    private ").append(dbField.getType()).append(" ").append(dbField.getName())
-                    .append(";//").append(dbField.getComment()).append("\n\n");
+                    .append(";").append("\n\n");
 
             String upName = dbField.getName();
             upName = upName.substring(0, 1).toUpperCase() + upName.substring(1);
-            getset.append("    public ").append(dbField.getType()).append(" get").append(upName).append("(){\n");
-            getset.append("        return ").append(dbField.getName()).append(";\n    }\n\n");
-            getset.append("    public void set").append(upName).append("(").append(dbField.getType())
-                    .append(" ").append(dbField.getName()).append("){\n");
-            getset.append("        this.").append(dbField.getName()).append(" = ").append(dbField.getName()).append(";\n    }\n\n");
-
+            if (conf.isEntityGetter()) {
+                getset.append("    public ").append(dbField.getType()).append(" get").append(upName).append("(){\n");
+                getset.append("        return ").append(dbField.getName()).append(";\n    }\n\n");
+            }
+            if (conf.isEntitySetter()) {
+                getset.append("    public void set").append(upName).append("(").append(dbField.getType())
+                        .append(" ").append(dbField.getName()).append("){\n");
+                getset.append("        this.").append(dbField.getName()).append(" = ").append(dbField.getName()).append(";\n    }\n\n");
+            }
         }
 
         if (importText.size() > 0){
